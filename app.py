@@ -417,15 +417,19 @@ st.markdown("""
 with st.sidebar:
     st.markdown("## System Status")
     st.markdown("---")
+    # API Status Check
     groq_ok = bool(GROQ_API_KEY)
     tavily_ok = bool(TAVILY_API_KEY)
+    st.subheader("🔑 API Status")
+
     if groq_ok:
-        st.success("✅ **Groq AI** — Active\n`llama-3.3-70b-versatile`")
+        st.success("✅ Groq AI Active")
+        st.code("llama-3.3-70b-versatile")
     else:
         st.error("❌ Groq API key missing")
 
     if tavily_ok:
-        st.success("✅ **Tavily API** — Active\n🔍 AI-Powered Web Search")
+        st.success("✅ Tavily Search Active")
     else:
         st.error("❌ Tavily API key missing")
     st.markdown("---")
