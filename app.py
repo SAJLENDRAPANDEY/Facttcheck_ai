@@ -419,8 +419,15 @@ with st.sidebar:
     st.markdown("---")
     groq_ok = bool(GROQ_API_KEY)
     tavily_ok = bool(TAVILY_API_KEY)
-    st.success("✅ **Groq AI** — Active\n`llama-3.3-70b-versatile`") if groq_ok else st.error("❌ Groq API key missing")
-    st.success("✅ **Tavily API** — Active\n🔍 AI-Powered Web Search") if tavily_ok else st.error("❌ Tavily API key missing")
+    if groq_ok:
+        st.success("✅ **Groq AI** — Active\n`llama-3.3-70b-versatile`")
+    else:
+        st.error("❌ Groq API key missing")
+
+    if tavily_ok:
+        st.success("✅ **Tavily API** — Active\n🔍 AI-Powered Web Search")
+    else:
+        st.error("❌ Tavily API key missing")
     st.markdown("---")
     st.markdown("### Verdict Guide")
     st.markdown("✅ **Verified** — Matches current evidence")
